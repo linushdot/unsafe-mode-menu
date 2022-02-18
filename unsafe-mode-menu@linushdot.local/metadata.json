@@ -1,0 +1,10 @@
+{
+  "name": "Unsafe Mode Menu",
+  "description": "Change unsafe mode via panel menu",
+  "uuid": "unsafe-mode-menu@linushdot.local",
+  "url": "https://github.com/linushdot/unsafe-mode-menu",
+  "version": 1,
+  "shell-version": [
+    "41"
+  ]
+}
