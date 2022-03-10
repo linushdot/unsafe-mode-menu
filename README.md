@@ -13,7 +13,7 @@ cd unsafe-mode-menu
 cp -r unsafe-mode-menu@linushdot.local ~/.local/share/gnome-shell/extensions/
 ```
 
-Then restart the shell.
+Then restart the shell and enable the extension from https://extensions.gnome.org/local/.
 
 ## Screenshot
 
