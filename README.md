@@ -1,7 +1,7 @@
 # Unsafe Mode Menu
 
-Simple GNOME extension to change the Gnome Shell unsafe-mode via the panel
-menu.
+Simple GNOME extension to change the Gnome Shell unsafe-mode via the quick
+settings menu/panel menu.
 
 ## Install/Update
 
@@ -15,6 +15,10 @@ cp -r unsafe-mode-menu@linushdot.local ~/.local/share/gnome-shell/extensions/
 
 Then restart the shell and enable the extension from https://extensions.gnome.org/local/.
 
-## Screenshot
+## Screenshot Gnome Shell 43
 
-![Screenshot](screenshot.png)
+![Screenshot Gnome Shell 43](screenshot43.png)
+
+## Screenshot Gnome Shell 41,42
+
+![Screenshot Gnome Shell 41,42](screenshot42.png)
