@@ -10,6 +10,7 @@ Clone this repository and copy the extension to your extensions folder.
 ```
 git clone https://github.com/linushdot/unsafe-mode-menu.git
 cd unsafe-mode-menu
+mkdir -p ~/.local/share/gnome-shell/extensions/
 cp -r unsafe-mode-menu@linushdot.local ~/.local/share/gnome-shell/extensions/
 ```
 
