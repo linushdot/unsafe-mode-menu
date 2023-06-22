@@ -3,6 +3,8 @@
 Simple GNOME extension to change the Gnome Shell unsafe-mode via the quick
 settings menu/panel menu.
 
+Runs on Gnome Shell 41-44.
+
 ## Install/Update
 
 Clone this repository and copy the extension to your extensions folder.

@@ -5,6 +5,8 @@ const Config = imports.misc.config;
 const [majorVersion, minorVersion] =
         Config.PACKAGE_VERSION.split('.').map(s => Number(s));
 
+const constTitle = 'Unsafe Mode';
+
 function init() {
     if (majorVersion >= 43) {
         return new Extension();
@@ -23,11 +25,20 @@ const QuickSettingsMenu = imports.ui.main.panel.statusArea.quickSettings;
 const UnsafeModeToggle = GObject.registerClass(
 class UnsafeModeToggle extends QuickSettings.QuickToggle {
     _init() {
-        super._init({
-            label: 'Unsafe Mode',
-            iconName: 'channel-insecure-symbolic',
-            toggleMode: true,
-        });
+        if (majorVersion == 43) {
+            super._init({
+                label: constTitle,
+                iconName: 'channel-insecure-symbolic',
+                toggleMode: true,
+            });
+        } else { // Gnome Shell 44+
+            super._init({
+                title: constTitle,
+                iconName: 'channel-insecure-symbolic',
+                toggleMode: true,
+            });
+            this.label = constTitle;
+        }
 
         // listen for changes to unsafe mode
         global.context.bind_property('unsafe-mode', this, 'checked',
