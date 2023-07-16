@@ -21,7 +21,9 @@ cp -r unsafe-mode-menu@linushdot.local ~/.local/share/gnome-shell/extensions/
 ```
 
 Then restart the shell and enable the extension from https://extensions.gnome.org/local/.
-Also on this page the following setting can be modified:
+Also on this page the following preferences can be modified.
+
+## Preferences
 
 - Enable on Startup: enable unsafe mode when extension is enabled or when
 Gnome Shell is started with the extension enabled
@@ -33,3 +35,27 @@ Gnome Shell is started with the extension enabled
 ## Screenshot Gnome Shell 42
 
 ![Screenshot Gnome Shell 42](screenshot42.png)
+
+## Use Cases
+
+Since Gnome 41 unsafe mode is necessary to let applications access certain
+[private D-Bus APIs](https://gitlab.gnome.org/GNOME/gnome-shell/-/merge_requests/1970)
+of the Gnome Shell. This mostly concerns:
+
+- API for Screenshots (also sometimes used for screen sharing):
+most applications now use a
+[new interface](https://flatpak.github.io/xdg-desktop-portal/) instead, but
+legacy applications may need unsafe mode for this
+- Calling the `org.gnome.Shell.Eval` method to execute javascript inside
+Gnome Shell: This is useful for keybindings or for controlling the Gnome
+Shell from a script.
+
+An example for the latter is changing to the secondary input source using a
+command:
+
+```
+gdbus call --session --dest org.gnome.Shell \
+    --object-path /org/gnome/Shell \
+    --method org.gnome.Shell.Eval \
+    "imports.ui.status.keyboard.getInputSourceManager().inputSources[1].activate()"
+```
