@@ -21,6 +21,10 @@ cp -r unsafe-mode-menu@linushdot.local ~/.local/share/gnome-shell/extensions/
 ```
 
 Then restart the shell and enable the extension from https://extensions.gnome.org/local/.
+Also on this page the following setting can be modified:
+
+- Enable on Startup: enable unsafe mode when extension is enabled or when
+Gnome Shell is started with the extension enabled
 
 ## Screenshot Gnome Shell 43
 

@@ -5,7 +5,7 @@
       <default>false</default>
       <summary>Enable on Startup</summary>
       <description>
-        Enable unsafe mode when extension is loaded
+        Enable unsafe mode when extension is enabled
       </description>
     </key>
   </schema>

@@ -16,7 +16,7 @@ function fillPreferencesWindow(window) {
     page.add(group);
     const row = new Adw.ActionRow({
         title: 'Enable on Startup',
-        subtitle: 'Enable unsafe mode when extension is loaded'
+        subtitle: 'Enable unsafe mode when extension is enabled'
     });
     group.add(row);
 
