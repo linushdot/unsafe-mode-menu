@@ -8,19 +8,14 @@ const [majorVersion, minorVersion] =
 
 const constTitle = 'Unsafe Mode';
 
-// Init extension
-function init() {
-    if (majorVersion >= 43) {
-        return new Extension();
-    } else {
-        return new ExtensionBefore43();
-    }
-}
-
 //
 // Implementation for Gnome Shell >=43
 //
 if (majorVersion >= 43) {
+    function init() {
+        return new Extension();
+    }
+
     const {Gio, GObject} = imports.gi;
     const QuickSettings = imports.ui.quickSettings;
     const QuickSettingsMenu = imports.ui.main.panel.statusArea.quickSettings;
@@ -75,6 +70,10 @@ if (majorVersion >= 43) {
 // Implementation for Gnome Shell 42
 //
 } else {
+    function init() {
+        return new ExtensionBefore43();
+    }
+
     const PanelMenu = imports.ui.panelMenu;
     const PopupMenu = imports.ui.popupMenu;
     const Main = imports.ui.main;
