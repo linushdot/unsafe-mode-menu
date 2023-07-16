@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.unsafe-mode-menu" path="/org/gnome/shell/extensions/unsafe-mode-menu/">
+    <key name="enable-on-startup" type="b">
+      <default>false</default>
+      <summary>Enable on Startup</summary>
+      <description>
+        Enable unsafe mode when extension is loaded
+      </description>
+    </key>
+  </schema>
+</schemalist>

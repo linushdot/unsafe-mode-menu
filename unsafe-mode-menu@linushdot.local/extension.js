@@ -7,6 +7,7 @@ const [majorVersion, minorVersion] =
 
 const constTitle = 'Unsafe Mode';
 
+// Init extension
 function init() {
     if (majorVersion >= 43) {
         return new Extension();
@@ -49,12 +50,18 @@ class UnsafeModeToggle extends QuickSettings.QuickToggle {
     }
 });
 
+const ExtensionUtils = imports.misc.extensionUtils;
+
 class Extension {
     constructor() {
         this._toggle = null;
     }
 
     enable() {
+        // enable unsafe mode if configured
+        if(ExtensionUtils.getSettings().get_boolean('enable-on-startup'))
+            global.context.unsafe_mode = true;
+
         this._toggle = new UnsafeModeToggle();
     }
 
@@ -77,6 +84,10 @@ class ExtensionBefore43 {
     }
 
     enable() {
+        // enable unsafe mode if configured
+        if(ExtensionUtils.getSettings().get_boolean('enable-on-startup'))
+            global.context.unsafe_mode = true;
+
         // create switch menu item which toggles unsafe mode
         this._menuItem = new PopupMenu.PopupSwitchMenuItem(_("Unsafe Mode"), global.context.unsafe_mode);
         this._menuItem.connect('toggled', () => {
