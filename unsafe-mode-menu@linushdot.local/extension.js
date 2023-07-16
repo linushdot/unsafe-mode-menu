@@ -72,7 +72,7 @@ class Extension {
 }
 
 //
-// Implementation for Gnome Shell 41,42
+// Implementation for Gnome Shell 42
 //
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;

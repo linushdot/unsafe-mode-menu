@@ -1,7 +1,7 @@
 # Unsafe Mode Menu
 
 Simple GNOME extension to change the Gnome Shell unsafe-mode via the quick
-settings menu/panel menu. Currently runs on Gnome Shell 41-44.
+settings menu/panel menu. Currently runs on Gnome Shell 42-44.
 
 If you want to try it on a newer version you need to add `"<version>"` to the
 list of supported versions in `unsafe-mode-menu@linushdot.local/metadata.json`
@@ -26,6 +26,6 @@ Then restart the shell and enable the extension from https://extensions.gnome.or
 
 ![Screenshot Gnome Shell 43](screenshot43.png)
 
-## Screenshot Gnome Shell 41,42
+## Screenshot Gnome Shell 42
 
-![Screenshot Gnome Shell 41,42](screenshot42.png)
+![Screenshot Gnome Shell 42](screenshot42.png)

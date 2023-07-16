@@ -5,13 +5,6 @@ const ExtensionUtils = imports.misc.extensionUtils;
 function init(metadata) {
 }
 
-// Preferences Window Gnome Shell <42
-function buildPrefsWidget() {
-    const prefsWidget = new Gtk.Box();
-    fillPreferencesWindow(prefsWidget);
-    return prefsWidget;
-}
-
 // Preferences Window
 function fillPreferencesWindow(window) {
     const settings = ExtensionUtils.getSettings();
