@@ -3,6 +3,7 @@ import GObject from 'gi://GObject';
 import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
 
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 const UnsafeModeIndicator = GObject.registerClass(
 class UnsafeModeIndicator extends QuickSettings.SystemIndicator {
