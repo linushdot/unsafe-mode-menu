@@ -1,4 +1,5 @@
 import GObject from 'gi://GObject';
+import Gio from 'gi://Gio';
 
 import * as QuickSettings from 'resource:///org/gnome/shell/ui/quickSettings.js';
 
@@ -24,19 +25,23 @@ class UnsafeModeToggle extends QuickSettings.QuickToggle {
         // listen for changes to unsafe mode
         global.context.bind_property('unsafe-mode', this, 'checked',
             GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
+
+        // bind to state setting
+        this._settings = extensionObject.getSettings();
+        this._settings.bind('state', global.context, 'unsafe-mode', Gio.SettingsBindFlags.DEFAULT);
     }
 });
 
 export default class UnsafeModeMenuExtension extends Extension {
     enable() {
-        // enable unsafe mode if configured
-        if(this.getSettings().get_boolean('enable-on-startup'))
-            global.context.unsafe_mode = true;
-
         this._indicator = new UnsafeModeIndicator(this);
         this._indicator.quickSettingsItems.push(new UnsafeModeToggle(this));
 
         Main.panel.statusArea.quickSettings.addExternalIndicator(this._indicator);
+
+        // enable unsafe mode if configured
+        if(this.getSettings().get_boolean('enable-on-startup'))
+            global.context.unsafe_mode = true;
     }
 
     disable() {

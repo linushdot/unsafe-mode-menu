@@ -8,5 +8,12 @@
         Enable unsafe mode when extension is enabled
       </description>
     </key>
+    <key name="state" type="b">
+      <default>false</default>
+      <summary>Current state</summary>
+      <description>
+        Enable/disable unsafe mode directly
+      </description>
+    </key>
   </schema>
 </schemalist>

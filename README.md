@@ -6,7 +6,7 @@ extension versions:
 
 | Gnome Shell | Extension |
 |-------------|-----------|
-| 45          | v6        |
+| 45          | v6-v7     |
 | 42-44       | v5        |
 
 If you want to try it on a newer version you need to add `"<version>"` to the
@@ -26,8 +26,9 @@ mkdir -p ~/.local/share/gnome-shell/extensions/
 cp -r unsafe-mode-menu@linushdot.local ~/.local/share/gnome-shell/extensions/
 ```
 
-Then restart the shell and enable the extension from https://extensions.gnome.org/local/.
-Also on this page the following preferences can be modified.
+Then restart the shell and enable the extension from https://extensions.gnome.org/local/
+or from `gnome-extensions-app`.
+Also on this page or in the extensions app the preferences can be modified.
 
 If you need an older version than the current one (for example version 5) clone the repository with
 the following command instead and follow the rest of the steps.
@@ -48,6 +49,14 @@ Gnome Shell is started with the extension enabled
 ## Screenshot Gnome Shell 42
 
 ![Screenshot Gnome Shell 42](screenshot42.png)
+
+## Changing Unsafe Mode via dconf
+
+With the extension enabled unsafe mode can be read and changed using `dconf`:
+```
+dconf read /org/gnome/shell/extensions/unsafe-mode-menu/state
+dconf write /org/gnome/shell/extensions/unsafe-mode-menu/state <true|false>
+```
 
 ## Use Cases
 
