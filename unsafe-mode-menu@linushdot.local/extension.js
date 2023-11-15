@@ -1,5 +1,6 @@
 /* exported init */
 const ExtensionUtils = imports.misc.extensionUtils;
+const {Gio} = imports.gi;
 
 // Version detection and init
 const Config = imports.misc.config;
@@ -16,7 +17,7 @@ if (majorVersion >= 43) {
         return new Extension();
     }
 
-    const {Gio, GObject} = imports.gi;
+    const {GObject} = imports.gi;
     const QuickSettings = imports.ui.quickSettings;
     const QuickSettingsMenu = imports.ui.main.panel.statusArea.quickSettings;
 
@@ -41,6 +42,10 @@ if (majorVersion >= 43) {
             // listen for changes to unsafe mode
             global.context.bind_property('unsafe-mode', this, 'checked',
                 GObject.BindingFlags.BIDIRECTIONAL | GObject.BindingFlags.SYNC_CREATE);
+
+            // bind to state setting
+            ExtensionUtils.getSettings().bind('state', global.context, 'unsafe-mode',
+                Gio.SettingsBindFlags.DEFAULT);
 
             // add to menu
             QuickSettingsMenu._addItems([this]);
@@ -104,6 +109,10 @@ if (majorVersion >= 43) {
                 if(this._menuItem != null)
                     this._menuItem.setToggleState(global.context.unsafe_mode);
             });
+
+            // bind to state setting
+            ExtensionUtils.getSettings().bind('state', global.context, 'unsafe-mode',
+                Gio.SettingsBindFlags.DEFAULT);
         }
 
         disable() {
