@@ -5,7 +5,7 @@
   "url": "https://github.com/linushdot/unsafe-mode-menu",
   "version": 10,
   "shell-version": [
-    "45", "46", "47"
+    "45", "46", "47", "48", "49"
   ],
   "settings-schema": "org.gnome.shell.extensions.unsafe-mode-menu"
 }
