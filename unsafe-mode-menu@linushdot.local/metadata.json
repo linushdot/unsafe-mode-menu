@@ -3,7 +3,7 @@
   "description": "Change unsafe mode via panel menu",
   "uuid": "unsafe-mode-menu@linushdot.local",
   "url": "https://github.com/linushdot/unsafe-mode-menu",
-  "version": 10,
+  "version": 11,
   "shell-version": [
     "45", "46", "47", "48", "49"
   ],
